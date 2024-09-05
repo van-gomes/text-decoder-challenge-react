@@ -1,0 +1,72 @@
+body {
+    background-color: var(--background-color-main);
+}
+
+.container_main {
+    display: grid;
+    grid-template-columns: 1fr 25rem;
+    gap: 2rem;
+    padding-left: 15rem;
+    width: calc(100% - 15rem);
+}
+
+.container__info__type__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 40rem;
+}
+
+.btn {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+@media (max-width: 783px) {
+    .container_main {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .container_header,
+    .container_text,
+    .container__info__type__text,
+    .btn,
+    .container__decoder {
+        width: 100%;
+        height: auto;
+        margin: 1rem 0;
+    }
+
+    .btn {
+        align-items: center;
+    }
+
+    .container__decoder {
+        width: 100%;
+        margin-top: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container__decoder img {
+        display: none;
+    }
+
+    .input__text__decoder {
+        width: 17rem;
+    }
+
+    .copy__button {
+        display: none;
+    }
+}
+
+.input__text__decoder:not(:placeholder-shown) + .copy__button {
+    display: block;
+}

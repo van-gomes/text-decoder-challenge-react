@@ -1,0 +1,15 @@
+.container_header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    height: auto;
+    padding-top: 2.5rem;
+    padding-left: 2.5rem;
+}
+
+.container_header img {  
+    height: 48px;
+    width: auto;
+    max-width: 120px;
+}
