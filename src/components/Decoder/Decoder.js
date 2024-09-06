@@ -1,11 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
 
 import text_decoder from "../../assets/text-decoder.png";
-import styles from "./DecoderSection.module.css";
+import styles from "./Decoder.module.css";
 
-export function DecoderSection({ onCopy, inputValue, onInputChange }) {
+export function Decoder() {
+  const [inputValue, setInputValue] = useState('');
+  
+  function handleCopyText() {
+    let textToCopy = document.querySelector('#inputtext2').value;
+    
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        console.log('Texto copiado com sucesso!');
+    }).catch(err => {
+        console.error('Erro ao copiar o texto: ', err);
+    });
+}
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
   return (
     <section className={styles.container__decoder}>
       <div className={styles.content__text__decoder}>
@@ -15,14 +31,14 @@ export function DecoderSection({ onCopy, inputValue, onInputChange }) {
         <Input
           id="inputtext2"
           value={inputValue}
-          onChange={onInputChange}
+          onChange={handleInputChange}
           placeholder="Digite um texto que você deseja criptografar ou descriptografar."
           className={styles.input__text__decoder}
         />
 
         <Button
           id="inputcopytext"
-          onClick={onCopy}
+          onClick={handleCopyText}
           label="Copiar"
           className={styles.copy__button}
         />

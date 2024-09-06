@@ -1,31 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Header } from "./components/Header/Header";
+import { Input } from "./components/Input/Input";
 import { Button } from "./components/Button/Button";
-import { DecoderSection } from "./components/DecoderSection/DecoderSection";
+import { Decoder } from "./components/Decoder/Decoder";
 import bi_exclamation from "./assets/bi_exclamation-circle-fill.png";
 
 import styles from "./App.module.css";
 import "./styles/global.css";
-import "./styles/styles.css";
 
 function App() {
+  const [inputValue, setInputValue] = useState('');
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  function handleEncrypt() {
+    
+    let textoDigitado = document.querySelector('#inputtext1').value;
+
+    const encryptedText = textoDigitado.split('').map(char => 
+        String.fromCharCode(char.charCodeAt(0) + 1)
+    ).join('');
+
+    document.querySelector('#inputtext1').value = encryptedText;
+}
+
+function handleDecrypt() {
+  let textoDigitado = document.querySelector('#inputtext1').value;
+
+  const decryptText = textoDigitado.split('').map(char => 
+      String.fromCharCode(char.charCodeAt(0) - 1)
+  ).join('');
+
+  document.querySelector('#inputtext1').value = decryptText;
+}
   
   return (
     <div>
       <Header />
+
       <main className={styles.container_main}>
         <section className="container_text">
-          <input
+          <Input
             id="inputtext1"
-            placeholder="Digite seu texto"
+            value={inputValue}
+            onChange={handleInputChange}
+             placeholder="Digite seu texto"
+            className={styles.container__text__input}
           />
-
+          
           <div className={styles.container__info__type__text}>
             <div className={styles.content__info__type__text}>
               <img
                 src={bi_exclamation}
-                alt="Aviso do tipo de texto a ser inserido"
+                alt="Aviso do tipo de texto a ser inserido no input"
               />
               <p className={styles.paragraph__info__type__text}>
                 Apenas letras minúsculas e sem acento.
@@ -37,16 +67,19 @@ function App() {
             <Button
               id="codificador"
               label="Criptografar"
+              onClick={handleEncrypt}
               className={styles.encrypt__button}
             />
             <Button
               id="descriptografar"
               label="Descriptografar"
+              onClick={handleDecrypt}
               className={styles.decrypt__button}
             />
           </div>
         </section>
-        <DecoderSection />
+
+        <Decoder />
       </main>
     </div>
   );
