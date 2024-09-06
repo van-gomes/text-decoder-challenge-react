@@ -7,21 +7,24 @@ import styles from "./Decoder.module.css";
 
 export function Decoder() {
   const [inputValue, setInputValue] = useState('');
-  
+  const [copySuccess, setCopySuccess] = useState('');
+
   function handleCopyText() {
-    let textToCopy = document.querySelector('#inputtext2').value;
+    let textToCopy = document.querySelector('#inputtextDecodificador').value;
     
     navigator.clipboard.writeText(textToCopy).then(() => {
-        console.log('Texto copiado com sucesso!');
+        setCopySuccess('Texto copiado com sucesso!');
     }).catch(err => {
-        console.error('Erro ao copiar o texto: ', err);
+        console.error('Ops, ocorreu um erro ao copiar o texto!');
     });
-}
+  }
 
   const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+    if (e.target.value !== inputValue) {
+      setInputValue(e.target.value);
+    }
   };
-
+  
   return (
     <section className={styles.container__decoder}>
       <div className={styles.content__text__decoder}>
@@ -29,10 +32,10 @@ export function Decoder() {
         <h1 className={styles.title__text_decoder}>Nenhuma mensagem encontrada</h1>
 
         <Input
-          id="inputtext2"
+          id="inputtextDecodificador"
           value={inputValue}
           onChange={handleInputChange}
-          placeholder="Digite um texto que você deseja criptografar ou descriptografar."
+          placeholder="Digite um texto que deseja decodificar"
           className={styles.input__text__decoder}
         />
 
@@ -40,8 +43,11 @@ export function Decoder() {
           id="inputcopytext"
           onClick={handleCopyText}
           label="Copiar"
+          aria-label="Copiar o texto inserido"
           className={styles.copy__button}
         />
+
+        {copySuccess && <p className={styles.copyMessage}>{copySuccess}</p>}
       </div>
     </section>
   );

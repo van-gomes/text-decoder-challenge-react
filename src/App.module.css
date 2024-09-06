@@ -3,31 +3,11 @@ body {
 }
 
 .container_main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    margin: 0 auto; /* Centraliza horizontalmente */
-}
-
-.container__text__input {
-    width: 100%;
-    max-width: 42.5rem;
-    height: 3rem;
-    margin-top: 8.5rem;
-    border: 0;
-    background: transparent;
-}
-
-.container__text__input::placeholder {
-    font-size: 1.5rem;
-    color: var(--dark-blue-300);
-}
-
-.container__text__input:hover {
-    color: var(--dark-blue-300);
-    border: 0.3px solid;
+    display: grid;
+    grid-template-columns: 1fr 25rem;
+    gap: 2rem;
+    padding-left: 15rem;
+    width: calc(100% - 15rem);
 }
 
 .container__info__type__text {
@@ -63,41 +43,4 @@ body {
     line-height: 1.5;
     display: flex;
     align-items: center;
-}
-
-.btn {
-    display: flex;
-    justify-content: flex-start;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.encrypt__button, 
-.decrypt__button {
-    width: 20.8rem;
-    padding: 1rem;
-    font-size: 1rem;
-    cursor: pointer;
-    border: none;
-    border-radius: 24rem;
-}
-
-.encrypt__button {
-    color: var(--background-color-main);
-    background-color: var(--dark-blue-300);
-}
-
-.decrypt__button {
-    color: var(--dark-blue-300);
-    background-color: var(--decrypt-button);
-}
-
-.encrypt__button:hover {
-    background-color: var(--background-color-main);
-    color: var(--dark-blue-300);
-}
-
-.decrypt__button:hover {
-    background-color: var(--dark-blue-300);
-    color: var(--background-color-main);
 }
