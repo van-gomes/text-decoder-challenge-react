@@ -1,0 +1,70 @@
+.container_main {
+    display: grid;
+    grid-template-columns: 1fr 20rem;
+    gap: 1.5rem;
+    width: 100%;
+    margin-left: 2rem;
+}
+
+.container__info__type__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin-top: 40rem;
+}
+
+.content__info__type__text {
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.container__info__type__text img {
+    width: auto;
+    height: 1.5rem;
+}
+
+.paragraph__info__type__text {
+    font-size: 1rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    display: flex;
+    justify-content: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.encrypt__button, 
+.decrypt__button {
+    width: 20.8rem;
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 24rem;
+}
+
+.encrypt__button {
+    color: var(--background-color-main);
+    background-color: var(--dark-blue-300);
+}
+
+.decrypt__button {
+    color: var(--dark-blue-300);
+    background-color: var(--decrypt-button);
+}
+
+.encrypt__button:hover {
+    background-color: var(--background-color-main);
+    color: var(--dark-blue-300);
+}
+
+.decrypt__button:hover {
+    background-color: var(--dark-blue-300);
+    color: var(--background-color-main);
+}

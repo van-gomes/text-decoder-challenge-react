@@ -1,13 +1,15 @@
 import React from "react";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
+
+import text_decoder from "../../assets/text-decoder.png";
 import styles from "./DecoderSection.module.css";
 
 export function DecoderSection({ onCopy, inputValue, onInputChange }) {
   return (
     <section className={styles.container__decoder}>
       <div className={styles.content__text__decoder}>
-        <img src="./assets/text-decoder.png" alt="Decodificador de Texto" />
+        <img src={text_decoder} alt="Decodificador de Texto" />
         <h1 className={styles.title__text_decoder}>Nenhuma mensagem encontrada</h1>
 
         <Input
