@@ -10,37 +10,40 @@ body {
     width: calc(100% - 15rem);
 }
 
-.container__info__type__text {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-top: 40rem;
+.container__text__input {
+    width: 100%;
+    max-width: 42.5rem;
+    height: 3rem;
+    margin-top: 8.5rem;
+    border: 0;
+    background: transparent;
 }
 
+.container__text__input::placeholder {
+    font-size: 1.5rem;
+    color: var(--dark-blue-300);
+}
 
-.container__info__type__text {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    margin-top: 40rem;
+.container__text__input:hover {
+    color: var(--dark-blue-300);
+    border: 0.3px solid;
 }
 
 .content__info__type__text {
     display: flex;
     align-items: center;
     gap: 0.1rem;
+    margin-top: 30rem;
 }
 
-.container__info__type__text img {
-    width: auto;
-    height: 1.5rem;
+.content__info__type__text img {
+    width: 1.5rem;
+    height: auto;
+    text-align: center;
+    margin-top: 0.4rem;
 }
 
 .paragraph__info__type__text {
     font-size: 1rem;
     line-height: 1.5;
-    display: flex;
-    align-items: center;
 }

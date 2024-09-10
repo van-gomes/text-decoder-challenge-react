@@ -13,6 +13,11 @@
     box-sizing: border-box;
 }
 
+body, input, button {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+}
 
 @media (max-width: 783px) {
     .container_main {

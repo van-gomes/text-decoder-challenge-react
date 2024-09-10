@@ -2,14 +2,12 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 100%;
-    height: auto;
-    padding-top: 6.5rem;
-    padding-left: 5.5rem;
+    margin-top: 2rem;
 }
 
 .container_header img {  
-    height: 48px;
-    width: auto;
-    max-width: 120px;
+    height: 3rem;
+    max-width: 25rem;
+    margin-left: 3rem;
+    padding: 0.3rem 2.3rem;
 }

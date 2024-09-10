@@ -3,11 +3,8 @@
     justify-content: center;
     align-items: flex-start;
     width: 25rem;
-    height: 59rem;
-    margin-top: 2.5rem;
     border-radius: 2rem;
     background-color: #f1f1f1;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     padding: 1rem;
 }
 
@@ -17,34 +14,36 @@
     align-items: center;
     gap: 1rem;
     width: 100%;
-    padding-top: 15rem;
+    padding-top: 10rem;
 }
 
 .container__decoder img {
     width: 21rem;
     height: 19rem;
+    margin-top: 0.5rem;
 }
 
 .title__text_decoder {
     width: 21rem;
     text-align: center;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     font-weight: bold;
-    margin: 0;
+    color: var(--gray-500);
+    text-shadow: 0.1em 0.1em 0.2em var(--gray-400);
 }
 
 .input__text__decoder {
-    width: 21rem;
+    width: 100%;
+    text-align: center;
     padding: 0.75rem 1rem;
-    font-size: 1rem;
-    border-radius: 0.5rem;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
+    border: none;
+    background-color: #f1f1f1;
 }
 
 .copy__button {
     width: 21rem;
     padding: 0.75rem 1rem;
+    margin-bottom: 8rem;
     font-size: 1rem;
     cursor: pointer;
     border-radius: 0.5rem;
