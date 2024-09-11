@@ -10,24 +10,23 @@ export function Decoder() {
   const [copySuccess, setCopySuccess] = useState('');
 
   function handleCopyText() {
-    let textToCopy = document.querySelector('#inputtextDecodificador').value;
+    let textToCopy = inputValue;
     
     navigator.clipboard.writeText(textToCopy).then(() => {
         setCopySuccess('Texto copiado com sucesso!');
+        setInputValue('');
     }).catch(err => {
         console.error('Ops, ocorreu um erro ao copiar o texto!');
     });
   }
 
   const handleInputChange = (e) => {
-    if (e.target.value !== inputValue) {
-      setInputValue(e.target.value);
-    }
+    setInputValue(e.target.value);
   };
-  
+
   return (
     <section className={styles.container__decoder}>
-      <div className={styles.content__text__decoder}>
+      <div className={`${styles.content__text__decoder} ${inputValue.length > 0 ? styles.top_aligned : ''}`}>
         <img src={text_decoder} alt="Decodificador de Texto" />
         <h1 className={styles.title__text_decoder}>Nenhuma mensagem encontrada</h1>
 

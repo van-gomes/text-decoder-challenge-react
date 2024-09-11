@@ -40,6 +40,11 @@
     background-color: #f1f1f1;
 }
 
+.top_aligned {
+    justify-content: flex-start;
+    color: green;
+  }
+
 .copy__button {
     width: 21rem;
     padding: 0.75rem 1rem;
