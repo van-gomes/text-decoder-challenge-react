@@ -7,7 +7,8 @@ export function Button({ id, onClick, label, className }) {
     <>
       <button
         id={id}
-        className={className === "encrypt__button" ? styles.encrypt__button : styles.decrypt__button}
+        className={className === "encrypt__button" ? 
+                    styles.encrypt__button : styles.decrypt__button}
         onClick={onClick}
       >
         {label}

@@ -17,25 +17,20 @@ function App() {
   };
 
   function handleEncrypt() {
-    
-    let textoDigitado = document.querySelector('#inputtext1').value;
-
-    const encryptedText = textoDigitado.split('').map(char => 
-        String.fromCharCode(char.charCodeAt(0) + 1)
+    const encryptedText = inputValue.split('').map(char => 
+      String.fromCharCode(char.charCodeAt(0) + 1)
     ).join('');
 
-    document.querySelector('#inputtext1').value = encryptedText;
-}
+    setInputValue(encryptedText);
+  }
 
-function handleDecrypt() {
-  let textoDigitado = document.querySelector('#inputtext1').value;
-
-  const decryptText = textoDigitado.split('').map(char => 
+  function handleDecrypt() {
+    const decryptText = inputValue.split('').map(char => 
       String.fromCharCode(char.charCodeAt(0) - 1)
-  ).join('');
+    ).join('');
 
-  document.querySelector('#inputtext1').value = decryptText;
-}
+    setInputValue(decryptText);
+  }
   
   return (
     <div>
@@ -47,7 +42,7 @@ function handleDecrypt() {
             id="inputtext1"
             value={inputValue}
             onChange={handleInputChange}
-             placeholder="Digite seu texto"
+            placeholder="Digite seu texto"
             className={styles.container__text__input}
           />
           

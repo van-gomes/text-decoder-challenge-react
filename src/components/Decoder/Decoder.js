@@ -26,7 +26,8 @@ export function Decoder() {
 
   return (
     <section className={styles.container__decoder}>
-      <div className={`${styles.content__text__decoder} ${inputValue.length > 0 ? styles.top_aligned : ''}`}>
+      <div className={`${styles.content__text__decoder}
+                       ${inputValue.length > 0 ? styles.top_aligned : ''}`}>
         <img src={text_decoder} alt="Decodificador de Texto" />
         <h1 className={styles.title__text_decoder}>Nenhuma mensagem encontrada</h1>
 
