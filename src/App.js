@@ -11,25 +11,26 @@ import "./styles/global.css";
 
 function App() {
   const [inputValue, setInputValue] = useState('');
+  const [encryptedText, setEncryptedText] = useState('');
+  const [decryptText, setDecryptText] = useState('');
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
   function handleEncrypt() {
-    const encryptedText = inputValue.split('').map(char => 
+    const encrypted = inputValue.split('').map(char => 
       String.fromCharCode(char.charCodeAt(0) + 1)
     ).join('');
 
-    setInputValue(encryptedText);
+    setEncryptedText(encrypted);
   }
 
   function handleDecrypt() {
-    const decryptText = inputValue.split('').map(char => 
-      String.fromCharCode(char.charCodeAt(0) - 1)
-    ).join('');
-
-    setInputValue(decryptText);
+      const decrypted = encryptedText.split('').map(char => 
+        String.fromCharCode(char.charCodeAt(0) - 1)
+      ).join('');
+      setDecryptText(decrypted);
   }
   
   return (
@@ -74,7 +75,7 @@ function App() {
           </div>
         </section>
 
-        <Decoder />
+        <Decoder encryptedText={encryptedText} decryptText={decryptText} /> {/* Passa o texto criptografado ao Decoder */}
       </main>
     </div>
   );

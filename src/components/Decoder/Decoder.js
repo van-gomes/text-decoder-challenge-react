@@ -1,13 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Input } from "../Input/Input";
 import { Button } from "../Button/Button";
 
 import text_decoder from "../../assets/text-decoder.png";
 import styles from "./Decoder.module.css";
 
-export function Decoder() {
+export function Decoder({ encryptedText, decryptText }) {
   const [inputValue, setInputValue] = useState('');
   const [copySuccess, setCopySuccess] = useState('');
+
+  useEffect(() => {
+    if (encryptedText) {
+      setInputValue(encryptedText); // Atualiza o valor do input com o texto criptografado
+    } else {
+      setInputValue(decryptText);
+    }
+  }, [encryptedText, decryptText]);
 
   function handleCopyText() {
     let textToCopy = inputValue;
@@ -26,17 +34,18 @@ export function Decoder() {
 
   return (
     <section className={styles.container__decoder}>
-      <div className={`${styles.content__text__decoder}
-                       ${inputValue.length > 0 ? styles.top_aligned : ''}`}>
+     <div className={styles.content__text__decoder}>
         <img src={text_decoder} alt="Decodificador de Texto" />
-        <h1 className={styles.title__text_decoder}>Nenhuma mensagem encontrada</h1>
+        <h1 className={styles.title__text_decoder}>
+          {inputValue ? "Texto criptografado" : "Nenhuma mensagem encontrada"}
+        </h1>
 
         <Input
           id="inputtextDecodificador"
           value={inputValue}
           onChange={handleInputChange}
           placeholder="Digite um texto que deseja decodificar"
-          className={styles.input__text__decoder}
+          className={`${styles.input__text__decoder} ${inputValue.length > 0 && styles.top_aligned}`}
         />
 
         <Button
