@@ -24,7 +24,6 @@ function App() {
     ).join('');
 
     setEncryptedText(encrypted);
-    console.log('texto criptografado', encrypted);
   }
 
   function handleDecrypt() {
@@ -32,7 +31,6 @@ function App() {
         String.fromCharCode(char.charCodeAt(0) - 1)
       ).join('');
       setDecryptedText(decrypted);
-      console.log('texto descriptografado', decrypted);
   }
   
   return (
