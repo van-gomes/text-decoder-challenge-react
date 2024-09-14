@@ -5,18 +5,19 @@ import { Button } from "../Button/Button";
 import text_decoder from "../../assets/text-decoder.png";
 import styles from "./Decoder.module.css";
 
-export function Decoder({ encryptedText, decryptText }) {
+export function Decoder({ encryptedText, decryptedText }) {
   const [inputValue, setInputValue] = useState('');
   const [copySuccess, setCopySuccess] = useState('');
 
   useEffect(() => {
-    if (encryptedText) {
-      setInputValue(encryptedText); // Atualiza o valor do input com o texto criptografado
-    } else {
-      setInputValue(decryptText);
+    if (decryptedText) {
+      setInputValue(decryptedText);
+    } else if (encryptedText) {
+      setInputValue(encryptedText);
     }
-  }, [encryptedText, decryptText]);
-
+  }, [encryptedText, decryptedText]);
+  
+  
   function handleCopyText() {
     let textToCopy = inputValue;
     
@@ -24,7 +25,7 @@ export function Decoder({ encryptedText, decryptText }) {
         setCopySuccess('Texto copiado com sucesso!');
         setInputValue('');
     }).catch(err => {
-        console.error('Ops, ocorreu um erro ao copiar o texto!');
+        setCopySuccess('Ops, ocorreu um erro ao copiar o texto!');
     });
   }
 
@@ -37,8 +38,11 @@ export function Decoder({ encryptedText, decryptText }) {
      <div className={styles.content__text__decoder}>
         <img src={text_decoder} alt="Decodificador de Texto" />
         <h1 className={styles.title__text_decoder}>
-          {inputValue ? "Texto criptografado" : "Nenhuma mensagem encontrada"}
+          {encryptedText ? "Texto criptografado"
+            : decryptedText ? "Texto descriptografado"
+            : "Nenhuma mensagem encontrada"}
         </h1>
+
 
         <Input
           id="inputtextDecodificador"

@@ -12,7 +12,7 @@ import "./styles/global.css";
 function App() {
   const [inputValue, setInputValue] = useState('');
   const [encryptedText, setEncryptedText] = useState('');
-  const [decryptText, setDecryptText] = useState('');
+  const [decryptedText, setDecryptedText] = useState('');
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -24,13 +24,15 @@ function App() {
     ).join('');
 
     setEncryptedText(encrypted);
+    console.log('texto criptografado', encrypted);
   }
 
   function handleDecrypt() {
       const decrypted = encryptedText.split('').map(char => 
         String.fromCharCode(char.charCodeAt(0) - 1)
       ).join('');
-      setDecryptText(decrypted);
+      setDecryptedText(decrypted);
+      console.log('texto descriptografado', decrypted);
   }
   
   return (
@@ -75,7 +77,7 @@ function App() {
           </div>
         </section>
 
-        <Decoder encryptedText={encryptedText} decryptText={decryptText} /> {/* Passa o texto criptografado ao Decoder */}
+        <Decoder encryptedText={encryptedText} decryptedText={decryptedText} /> {/* Passa o texto criptografado ao Decoder */}
       </main>
     </div>
   );
