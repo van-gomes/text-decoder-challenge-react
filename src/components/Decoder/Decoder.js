@@ -28,6 +28,7 @@ export function Decoder({ encryptedText, decryptedText }) {
     navigator.clipboard.writeText(textToCopy).then(() => {
         setCopySuccess('Texto copiado com sucesso!');
         setInputValue('');
+        setShowMessage('Nenhuma mensagem encontrada');
     }).catch(err => {
         setCopySuccess('Ops, ocorreu um erro ao copiar o texto!');
     });

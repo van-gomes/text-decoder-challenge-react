@@ -15,7 +15,7 @@ function App() {
   const [decryptedText, setDecryptedText] = useState('');
 
   const handleInputChange = (e) => {
-    setInputValue(e.target.value);
+      setInputValue(e.target.value);
   };
 
   function handleEncrypt() {
