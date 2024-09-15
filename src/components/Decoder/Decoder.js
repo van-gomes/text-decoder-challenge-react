@@ -7,17 +7,21 @@ import styles from "./Decoder.module.css";
 
 export function Decoder({ encryptedText, decryptedText }) {
   const [inputValue, setInputValue] = useState('');
+  const [showMessage, setShowMessage] = useState('');
   const [copySuccess, setCopySuccess] = useState('');
 
   useEffect(() => {
     if (decryptedText) {
       setInputValue(decryptedText);
+      setShowMessage('Texto descriptografado');
     } else if (encryptedText) {
       setInputValue(encryptedText);
+      setShowMessage('Texto criptografado');
+    } else {
+      setShowMessage('Nenhuma mensagem encontrada');
     }
   }, [encryptedText, decryptedText]);
-  
-  
+
   function handleCopyText() {
     let textToCopy = inputValue;
     
@@ -37,13 +41,11 @@ export function Decoder({ encryptedText, decryptedText }) {
     <section className={styles.container__decoder}>
      <div className={styles.content__text__decoder}>
         <img src={text_decoder} alt="Decodificador de Texto" />
-        <h1 className={styles.title__text_decoder}>
-          {encryptedText ? "Texto criptografado"
-            : decryptedText ? "Texto descriptografado"
-            : "Nenhuma mensagem encontrada"}
-        </h1>
 
-
+        { showMessage && 
+          <h1 className={styles.title__text_decoder}>{showMessage}</h1>
+        }
+        
         <Input
           id="inputtextDecodificador"
           value={inputValue}
