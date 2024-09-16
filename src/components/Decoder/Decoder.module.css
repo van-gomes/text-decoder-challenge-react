@@ -1,11 +1,8 @@
 .container__decoder {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    width: 25rem;
+    padding: 1rem;
     border-radius: 2rem;
     background-color: #f1f1f1;
-    padding: 1rem;
 }
 
 .content__text__decoder {
@@ -18,13 +15,11 @@
 }
 
 .container__decoder img {
-    width: 21rem;
     height: 19rem;
     margin-top: 0.5rem;
 }
 
 .title__text_decoder {
-    width: 21rem;
     text-align: center;
     font-size: 1.5rem;
     font-weight: bold;
@@ -34,7 +29,6 @@
 
 .input__text__decoder {
     display: flex;
-    width: 100%;
     text-align: center;
     padding: 0.75rem 1rem;
     border: 0;
@@ -47,7 +41,6 @@
   }
 
 .copy__button {
-    width: 21rem;
     padding: 0.75rem 1rem;
     margin-bottom: 8rem;
     font-size: 1rem;
@@ -55,5 +48,5 @@
     border-radius: 0.5rem;
     background-color: #007bff;
     color: white;
-    border: none;
+    border: 0;
 }

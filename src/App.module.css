@@ -2,12 +2,16 @@ body {
     background-color: var(--background-color-main);
 }
 
+.app_container {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+}
+
 .container_main {
     display: grid;
-    grid-template-columns: 1fr 25rem;
+    grid-template-columns: 1fr 24rem;
     gap: 2rem;
-    padding-left: 15rem;
-    width: calc(100% - 15rem);
 }
 
 .container__text__input {

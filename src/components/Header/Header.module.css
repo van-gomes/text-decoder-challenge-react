@@ -1,13 +1,11 @@
 .container_header {
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
+    /* align-items: center; */
     margin-top: 2rem;
 }
 
 .container_header img {  
     height: 3rem;
-    max-width: 25rem;
     margin-left: 3rem;
-    padding: 0.3rem 2.3rem;
 }

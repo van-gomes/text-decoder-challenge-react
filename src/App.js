@@ -34,11 +34,11 @@ function App() {
   }
   
   return (
-    <div>
+    <div className={styles.app_container}>
       <Header />
 
       <main className={styles.container_main}>
-        <section className="container_text">
+        <section className={styles.container_text}>
           <Input
             id="inputtext1"
             value={inputValue}

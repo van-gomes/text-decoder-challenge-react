@@ -51,7 +51,7 @@ export function Decoder({ encryptedText, decryptedText }) {
           id="inputtextDecodificador"
           value={inputValue}
           onChange={handleInputChange}
-          placeholder="Digite um texto que deseja decodificar"
+          placeholder="Digite um texto que você deseja criptografar ou descriptografar."
           className={`${styles.input__text__decoder} ${inputValue.length > 0 && styles.top_aligned}`}
         />
 
