@@ -12,7 +12,6 @@ export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
   useEffect(() => {
     if (decryptedText) {
       setInputValue(decryptedText);
-      setCopySuccess('');
     } else if (encryptedText) {
       setInputValue(encryptedText);
     }
