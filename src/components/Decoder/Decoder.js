@@ -7,20 +7,16 @@ import styles from "./Decoder.module.css";
 
 export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
   const [inputValue, setInputValue] = useState('');
-  const [showMessage, setShowMessage] = useState('');
   const [copySuccess, setCopySuccess] = useState('');
 
   useEffect(() => {
     if (decryptedText) {
       setInputValue(decryptedText);
-      setShowMessage('Texto descriptografado');
       setCopySuccess('');
     } else if (encryptedText) {
       setInputValue(encryptedText);
-      setShowMessage('Texto criptografado');
-    } else {
-      setShowMessage('Nenhuma mensagem encontrada');
     }
+
   }, [encryptedText, decryptedText]);
 
   function handleCopyText() {
@@ -29,7 +25,6 @@ export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
     navigator.clipboard.writeText(textToCopy).then(() => {
         setCopySuccess('Texto copiado com sucesso!');
         setInputValue('');
-        setShowMessage('Nenhuma mensagem encontrada');
     }).catch(err => {
         setCopySuccess('Ops, ocorreu um erro ao copiar o texto!');
     });
@@ -44,15 +39,11 @@ export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
      <div className={styles.content__text__decoder}>
         <img src={text_decoder} alt="Decodificador de Texto" />
 
-        {showMessage &&
-            <h1 
-              className={`${styles.title__text_decoder} 
-                          ${isDecodedText ? styles.title__text_desapare_decoder
-                                              : styles.title__text_decoder}`}
-            >
-              {showMessage}
-            </h1>
-        }
+        <h1 
+          className={`${isDecodedText ? styles.hidden : styles.title__text_decoder}`}
+        >
+          Nenhuma mensagem encontrada
+        </h1>
 
         <Input
           id="inputtextDecodificador"
