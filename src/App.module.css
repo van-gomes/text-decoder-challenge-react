@@ -59,20 +59,20 @@ body {
 
 .encrypt__button, 
 .decrypt__button {
-    width: 20.8rem;
+    width: 17rem;
     padding: 1rem;
     font-size: 1rem;
+    border-radius: 24px;
+    border: 1px solid var(--dark-blue-300);
     cursor: pointer;
-    border: 0;
-    border-radius: 24rem;
 }
 
 .encrypt__button {
-    color: yellow;
-    background-color: blue;
+    color: var(--color-white);
+    background-color: var(--dark-blue-300);
 }
 
 .decrypt__button {
     color: var(--dark-blue-300);
-    background-color: var(--decrypt-button);
+    background-color: var(--dark-blue-500);
 }
