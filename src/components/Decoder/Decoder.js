@@ -5,7 +5,7 @@ import { Button } from "../Button/Button";
 import text_decoder from "../../assets/text-decoder.png";
 import styles from "./Decoder.module.css";
 
-export function Decoder({ encryptedText, decryptedText }) {
+export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
   const [inputValue, setInputValue] = useState('');
   const [showMessage, setShowMessage] = useState('');
   const [copySuccess, setCopySuccess] = useState('');
@@ -14,6 +14,7 @@ export function Decoder({ encryptedText, decryptedText }) {
     if (decryptedText) {
       setInputValue(decryptedText);
       setShowMessage('Texto descriptografado');
+      setCopySuccess('');
     } else if (encryptedText) {
       setInputValue(encryptedText);
       setShowMessage('Texto criptografado');
@@ -43,10 +44,16 @@ export function Decoder({ encryptedText, decryptedText }) {
      <div className={styles.content__text__decoder}>
         <img src={text_decoder} alt="Decodificador de Texto" />
 
-        { showMessage && 
-          <h1 className={styles.title__text_decoder}>{showMessage}</h1>
+        {showMessage &&
+            <h1 
+              className={`${styles.title__text_decoder} 
+                          ${isDecodedText ? styles.title__text_desapare_decoder
+                                              : styles.title__text_decoder}`}
+            >
+              {showMessage}
+            </h1>
         }
-        
+
         <Input
           id="inputtextDecodificador"
           value={inputValue}

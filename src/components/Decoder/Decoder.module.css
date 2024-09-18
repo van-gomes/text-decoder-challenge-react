@@ -26,6 +26,10 @@
     text-shadow: 0.1em 0.1em 0.2em var(--gray-500);
 }
 
+.title__text_desapare_decoder {
+    display: none;
+}
+
 .input__text__decoder {
     display: flex;
     text-align: center;

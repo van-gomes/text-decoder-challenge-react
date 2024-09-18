@@ -13,6 +13,7 @@ function App() {
   const [inputValue, setInputValue] = useState('');
   const [encryptedText, setEncryptedText] = useState('');
   const [decryptedText, setDecryptedText] = useState('');
+  const [isDecodedText, setIsDecodedText] = useState(false);
 
   const handleInputChange = (e) => {
       setInputValue(e.target.value);
@@ -24,13 +25,16 @@ function App() {
     ).join('');
 
     setEncryptedText(encrypted);
+    setIsDecodedText(true);
   }
 
   function handleDecrypt() {
       const decrypted = encryptedText.split('').map(char => 
         String.fromCharCode(char.charCodeAt(0) - 1)
       ).join('');
+
       setDecryptedText(decrypted);
+      setIsDecodedText(true);
   }
   
   return (
@@ -75,7 +79,11 @@ function App() {
           </div>
         </section>
 
-        <Decoder encryptedText={encryptedText} decryptedText={decryptedText} /> {/* Passa o texto criptografado ao Decoder */}
+        <Decoder 
+              encryptedText={encryptedText} 
+              decryptedText={decryptedText}
+              isDecodedText={isDecodedText}
+        />
       </main>
     </div>
   );
