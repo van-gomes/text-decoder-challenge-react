@@ -50,3 +50,29 @@ body {
     font-size: 1rem;
     line-height: 1.5;
 }
+
+.btn {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.encrypt__button, 
+.decrypt__button {
+    width: 20.8rem;
+    padding: 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    border: 0;
+    border-radius: 24rem;
+}
+
+.encrypt__button {
+    color: yellow;
+    background-color: blue;
+}
+
+.decrypt__button {
+    color: var(--dark-blue-300);
+    background-color: var(--decrypt-button);
+}
