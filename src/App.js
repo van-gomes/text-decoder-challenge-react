@@ -35,9 +35,9 @@ function App() {
   
   return (
     <div className={styles.app_container}>
-      <Header />
+       <main className={styles.container_main}>
+          <Header />
 
-      <main className={styles.container_main}>
         <section className={styles.container_text}>
           <Input
             id="inputtext1"

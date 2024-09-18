@@ -9,9 +9,8 @@ body {
 }
 
 .container_main {
-    display: grid;
-    grid-template-columns: 1fr 24rem;
-    gap: 2rem;
+    display: flex;
+    gap: 10rem;
 }
 
 .container__text__input {
