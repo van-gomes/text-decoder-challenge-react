@@ -36,7 +36,11 @@ export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
   return (
     <section className={styles.container__decoder}>
      <div className={styles.content__text__decoder}>
-        <img src={text_decoder} alt="Decodificador de Texto" />
+        <img
+            className={`${isDecodedText ? styles.hidden : styles.img_text_decoder}`}
+            src={text_decoder} 
+            alt="Decodificador de Texto" 
+        />
 
         <h1 
           className={`${isDecodedText ? styles.hidden : styles.title__text_decoder}`}
@@ -49,7 +53,7 @@ export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
           value={inputValue}
           onChange={handleInputChange}
           placeholder="Digite um texto que você deseja criptografar ou descriptografar."
-          className={styles.input__text__decoder}
+          className={`${isDecodedText ? styles.input__decoder__with__text : styles.input__text__decoder}`}
         />
 
         <Button
@@ -60,7 +64,7 @@ export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
           className={styles.copy__button}
         />
 
-        {copySuccess && <p className={styles.copyMessage}>{copySuccess}</p>}
+        {copySuccess && ( <p className={styles.copyMessage}>{copySuccess}</p> )}
       </div>
     </section>
   );
