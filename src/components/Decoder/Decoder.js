@@ -34,7 +34,7 @@ export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
   };
 
   return (
-    <div className={styles.container__decoder}>
+    <section className={styles.container__decoder}>
      <div className={styles.content__text__decoder}>
         <img
             className={`${isDecodedText ? styles.hidden : styles.img_text_decoder}`}
@@ -68,6 +68,6 @@ export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
       </div>
       
         {copySuccess && ( <p className={styles.copyMessage}>{copySuccess}</p> )}
-      </div>
+      </section>
   );
 }

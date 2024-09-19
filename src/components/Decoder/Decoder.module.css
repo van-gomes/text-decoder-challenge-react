@@ -60,3 +60,15 @@
     border: 1px solid var(--dark-blue-300);
     cursor: pointer;
 }
+
+@media (max-width: 375px) {
+    .img_text_decoder {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .img_text_decoder {
+        display: none;
+    }
+}

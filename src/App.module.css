@@ -76,3 +76,53 @@ body {
     color: var(--dark-blue-300);
     background-color: var(--dark-blue-500);
 }
+
+@media (max-width: 375px) {
+    .app_container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0.1rem;
+    }
+
+    .container_main {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        max-width: 48rem;
+        width: 100%;
+        gap: 3rem;
+    }
+    
+    .container_text {
+        display: flex;
+        flex-direction: column;
+        margin-top: -6rem;
+        margin-left: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .app_container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0.1rem;
+    }
+
+    .container_main {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        max-width: 48rem;
+        width: 100%;
+        gap: 3rem;
+    }
+    
+    .container_text {
+        display: flex;
+        flex-direction: column;
+        margin-top: -6rem;
+        margin-left: 3rem;
+    }
+}

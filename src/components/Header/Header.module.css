@@ -1,7 +1,6 @@
 .container_header {
     display: flex;
     justify-content: flex-start;
-    /* align-items: center; */
     margin-top: 2rem;
 }
 
