@@ -39,7 +39,7 @@ function App() {
   
   return (
     <div className={styles.app_container}>
-       <main className={styles.container_main}>
+       <main className={styles.app__container__main}>
           <Header />
 
         <section className={styles.container_text}>
