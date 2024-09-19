@@ -1,7 +1,6 @@
 .container_header {
     display: flex;
     justify-content: flex-start;
-    margin-top: 2rem;
 }
 
 .container_header img {  
