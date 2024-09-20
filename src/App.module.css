@@ -98,7 +98,9 @@ body {
     .container_text {
         display: flex;
         flex-direction: column;
-        margin-top: -6rem;
+        position: absolute;
+        top: 3.75rem;
+        /* margin-top: -6rem; */
         margin-left: 3rem;
     }
 }
@@ -123,7 +125,9 @@ body {
     .container_text {
         display: flex;
         flex-direction: column;
-        margin-top: -6rem;
+        position: absolute;
+        top: 3.75rem;
+        /* margin-top: -6rem; */
         margin-left: 3rem;
     }
 }
