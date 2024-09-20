@@ -48,7 +48,7 @@ export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
           Nenhuma mensagem encontrada
         </h1>
 
-        <Input
+        <textarea
           id="inputtextDecodificador"
           value={inputValue}
           onChange={handleInputChange}
