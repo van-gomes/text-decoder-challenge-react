@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-import { Header } from "./components/Header/Header";
-import { Input } from "./components/Input/Input";
 import { Button } from "./components/Button/Button";
 import { Decoder } from "./components/Decoder/Decoder";
+import { Header } from "./components/Header/Header";
+import { Textarea } from "./components/Textarea/Textarea";
+
 import bi_exclamation from "./assets/bi_exclamation-circle-fill.png";
 
 import styles from "./App.module.css";
@@ -43,7 +44,7 @@ function App() {
           <Header />
 
         <section className={styles.container_text}>
-          <Input
+          <Textarea
             id="inputtext1"
             value={inputValue}
             onChange={handleInputChange}
