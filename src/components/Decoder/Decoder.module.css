@@ -73,6 +73,9 @@
     .container__decoder {
         position: absolute;
         top: 53rem;
+        max-width: 33rem;
+        width: 100%;
+        margin: 3rem;
     }
 
     .img_text_decoder {
@@ -84,6 +87,9 @@
     .container__decoder {
         position: absolute;
         top: 53rem;
+        max-width: 33rem;
+        width: 100%;
+        margin: 3rem;
     }
     
     .img_text_decoder {
