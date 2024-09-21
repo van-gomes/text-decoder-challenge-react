@@ -54,18 +54,18 @@ export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
           placeholder="Digite um texto que você deseja criptografar ou descriptografar."
           className={`${isDecodedText ? styles.input__decoder__with__text : styles.input__text__decoder}`}
         />
-      </div>
 
-      <div className={styles.container_copy_button}>
-        <Button
-          id="inputcopytext"
-          onClick={handleCopyText}
-          label="Copiar"
-          aria-label="Copiar o texto inserido"
-          className={styles.copy__button}
-        />
+        <div className={styles.container_copy_button}>
+          <Button
+            id="inputcopytext"
+            onClick={handleCopyText}
+            label="Copiar"
+            aria-label="Copiar o texto inserido"
+            className={styles.copy__button}
+          />
+        </div>
       </div>
-      
+ 
       {copySuccess && ( <p className={styles.copyMessage}>{copySuccess}</p> )}
     </section>
   );

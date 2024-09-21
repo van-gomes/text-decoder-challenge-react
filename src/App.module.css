@@ -79,17 +79,19 @@ body {
 }
 
 @media (max-width: 375px) {
-    .app_container {
+    /* .app_container {
         display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
+        justify-content: center;
+        align-items: center;
         padding: 0.1rem;
-    }
+    } */
 
-    .container_main {
+    .app__container__main {
         display: flex;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
         max-width: 48rem;
         width: 100%;
         gap: 3rem;
@@ -113,14 +115,16 @@ body {
         padding: 0.1rem;
     }
 
-    .container_main {
+    .app__container__main {
         display: flex;
-        flex-wrap: wrap;
+        /* flex-wrap: wrap; */
         flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
         max-width: 48rem;
         width: 100%;
         gap: 3rem;
-    }
+    } 
     
     .container_text {
         display: flex;

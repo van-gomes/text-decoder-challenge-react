@@ -6,3 +6,15 @@
 .container_header img {  
     height: 3rem;
 }
+
+@media (max-width: 375px) {
+    .container_header {
+        margin: 3rem 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .container_header {
+        margin: 3rem 3rem;
+    }
+}

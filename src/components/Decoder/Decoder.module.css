@@ -1,6 +1,7 @@
 .container__decoder {
     display: flex;
-    flex-direction: column;
+    /* justify-content: center;
+    align-items: center; */
     max-width: 24rem;
     width: 100%;
     padding: 1rem;
@@ -69,12 +70,22 @@
 }
 
 @media (max-width: 375px) {
+    .container__decoder {
+        position: absolute;
+        top: 53rem;
+    }
+
     .img_text_decoder {
         display: none;
     }
 }
 
 @media (max-width: 768px) {
+    .container__decoder {
+        position: absolute;
+        top: 53rem;
+    }
+    
     .img_text_decoder {
         display: none;
     }
