@@ -19,10 +19,6 @@ function App() {
   const handleTextareChange = (e) => {
       setInputValue(e.target.value);
   };
-
-  // function validationTextareField() {
-  //   if (inputValue == /[^a-z\s]/g)
-  // }
   
   function handleEncrypt() {
     const encrypted = inputValue.split('').map(char => 
