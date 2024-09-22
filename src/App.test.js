@@ -1,8 +1,16 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('Deve renderizar o campo textarea com o placeholder correto', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+
+  const campoTextarea = screen.getByPlaceholderText('Digite seu texto');
+
+  expect(campoTextarea).toBeInTheDocument();
+
+  expect(campoTextarea).toHaveAttribute('placeholder', 'Digite seu texto');
+});
+
+test('Deve mostrar mensagem quando campo de entrada for inválido', () => {
+  
 });

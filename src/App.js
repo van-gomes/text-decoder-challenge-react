@@ -16,10 +16,14 @@ function App() {
   const [decryptedText, setDecryptedText] = useState('');
   const [isDecodedText, setIsDecodedText] = useState(false);
 
-  const handleInputChange = (e) => {
+  const handleTextareChange = (e) => {
       setInputValue(e.target.value);
   };
 
+  // function validationTextareField() {
+  //   if (inputValue == /[^a-z\s]/g)
+  // }
+  
   function handleEncrypt() {
     const encrypted = inputValue.split('').map(char => 
       String.fromCharCode(char.charCodeAt(0) + 1)
@@ -45,9 +49,9 @@ function App() {
 
         <section className={styles.container_text}>
           <Textarea
-            id="inputtext1"
+            data-testid="inputtext1"
             value={inputValue}
-            onChange={handleInputChange}
+            onChange={handleTextareChange}
             placeholder="Digite seu texto"
             className={styles.container__text__input}
           />

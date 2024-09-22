@@ -1,7 +1,6 @@
 import React from "react";
-// import styles from "./Textarea.module.css";
 
-export function Textarea({ id, className, onChange, placeholder, value }) {
+export function Textarea({ id, className, onChange, placeholder, value, testId }) {
   return (
     <textarea
       id={id}
@@ -9,6 +8,7 @@ export function Textarea({ id, className, onChange, placeholder, value }) {
       onChange={onChange}
       placeholder={placeholder}
       className={className}
+      data-testid={testId}
     />
   );
 }
