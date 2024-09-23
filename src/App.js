@@ -15,11 +15,21 @@ function App() {
   const [encryptedText, setEncryptedText] = useState('');
   const [decryptedText, setDecryptedText] = useState('');
   const [isDecodedText, setIsDecodedText] = useState(false);
+  let char = 0;
 
   const handleTextareChange = (e) => {
       setInputValue(e.target.value);
   };
-  
+
+  function validationTextareField(inputValue) {
+    for (let i = 0; i < char.length; i++) {
+         char = inputValue[i];
+        if ((char !== 'a' || char !== 'z') && char !== ' ') {
+            return 'Texto para decodificação inválido!';
+        }
+    }
+}
+
   function handleEncrypt() {
     const encrypted = inputValue.split('').map(char => 
       String.fromCharCode(char.charCodeAt(0) + 1)
@@ -27,6 +37,8 @@ function App() {
 
     setEncryptedText(encrypted);
     setIsDecodedText(true);
+
+    validationTextareField();
   }
 
   function handleDecrypt() {
@@ -36,6 +48,8 @@ function App() {
 
       setDecryptedText(decrypted);
       setIsDecodedText(true);
+
+      validationTextareField();
   }
   
   return (
@@ -45,13 +59,14 @@ function App() {
 
         <section className={styles.container_text}>
           <Textarea
-            data-testid="inputtext1"
+            id="inputtext1"
             value={inputValue}
             onChange={handleTextareChange}
             placeholder="Digite seu texto"
             className={styles.container__text__input}
+            data-testid="inputtext1"
           />
-          
+  
           <div className={styles.container__info__type__text}>
             <div className={styles.content__info__type__text}>
               <img
