@@ -21,15 +21,6 @@ function App() {
       setInputValue(e.target.value);
   };
 
-  function validationTextareField(inputValue) {
-    for (let i = 0; i < char.length; i++) {
-         char = inputValue[i];
-        if ((char !== 'a' || char !== 'z') && char !== ' ') {
-            return 'Texto para decodificação inválido!';
-        }
-    }
-}
-
   function handleEncrypt() {
     const encrypted = inputValue.split('').map(char => 
       String.fromCharCode(char.charCodeAt(0) + 1)
@@ -37,8 +28,6 @@ function App() {
 
     setEncryptedText(encrypted);
     setIsDecodedText(true);
-
-    validationTextareField();
   }
 
   function handleDecrypt() {
@@ -48,8 +37,6 @@ function App() {
 
       setDecryptedText(decrypted);
       setIsDecodedText(true);
-
-      validationTextareField();
   }
   
   return (
