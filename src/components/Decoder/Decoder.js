@@ -5,17 +5,17 @@ import { Textarea } from "../Textarea/Textarea";
 import text_decoder from "../../assets/text-decoder.png";
 import styles from "./Decoder.module.css";
 
-export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
+export function Decoder({ outputValue }) {
   const [inputValue, setInputValue] = useState('');
   const [copySuccess, setCopySuccess] = useState('');
 
-  useEffect(() => {
-    if (decryptedText) {
-      setInputValue(decryptedText);
-    } else if (encryptedText) {
-      setInputValue(encryptedText);
-    }
-  }, [encryptedText, decryptedText]);
+  // useEffect(() => {
+  //   if (decryptedText) {
+  //     setInputValue(decryptedText);
+  //   } else if (encryptedText) {
+  //     setInputValue(encryptedText);
+  //   }
+  // }, [encryptedText, decryptedText]);
 
   function handleCopyText() {
     let textToCopy = inputValue;
@@ -36,23 +36,24 @@ export function Decoder({ encryptedText, decryptedText, isDecodedText }) {
     <section className={styles.container__decoder}>
       <div className={styles.content__text__decoder}>
         <img
-          className={`${isDecodedText ? styles.hidden : styles.img_text_decoder}`}
+          // className={`${isDecodedText ? styles.hidden : styles.img_text_decoder}`}
           src={text_decoder} 
           alt="Decodificador de Texto" 
         />
 
         <h1 
-          className={`${isDecodedText ? styles.hidden : styles.title__text_decoder}`}
+          // className={`${isDecodedText ? styles.hidden : styles.title__text_decoder}`}
         >
           Nenhuma mensagem encontrada
         </h1>
 
         <Textarea
           id="inputtextDecodificador"
-          value={inputValue}
+          value={outputValue}
+          readOnly
           onChange={handleInputChange}
           placeholder="Digite um texto que você deseja criptografar ou descriptografar."
-          className={`${isDecodedText ? styles.input__decoder__with__text : styles.input__text__decoder}`}
+          // className={`${isDecodedText ? styles.input__decoder__with__text : styles.input__text__decoder}`}
         />
 
         <div className={styles.container_copy_button}>
