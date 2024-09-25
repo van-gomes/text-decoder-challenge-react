@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { encryptText, decryptText } from "./utils/utils";
 
 import { Button } from "./components/Button/Button";
 import { Decoder } from "./components/Decoder/Decoder";
@@ -12,32 +13,42 @@ import "./styles/global.css";
 
 function App() {
   const [inputValue, setInputValue] = useState('');
-  const [encryptedText, setEncryptedText] = useState('');
-  const [decryptedText, setDecryptedText] = useState('');
-  const [isDecodedText, setIsDecodedText] = useState(false);
-  let char = 0;
+  const [outputValue, setOutputValue] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleTextareChange = (e) => {
-      setInputValue(e.target.value);
-  };
+  function validationTextareField(inputValue) {
+    if (!inputValue.trim()) {
+      setErrorMessage('Campo de entrada está vazio!');
+      return false;
+    }
 
+    if (!/^[a-z ]+$/.test(inputValue)) {
+      setErrorMessage('Texto para decodificação inválido!');
+      return false;
+    }
+    return true;
+  }
+
+  // Função de criptografia
   function handleEncrypt() {
-    const encrypted = inputValue.split('').map(char => 
-      String.fromCharCode(char.charCodeAt(0) + 1)
-    ).join('');
-
-    setEncryptedText(encrypted);
-    setIsDecodedText(true);
+    if (!validationTextareField(inputValue)) return;
+    const encrypted = encryptText(inputValue);
+    setOutputValue(encrypted);
+    setErrorMessage('');
   }
 
+  // Função de descriptografia
   function handleDecrypt() {
-      const decrypted = encryptedText.split('').map(char => 
-        String.fromCharCode(char.charCodeAt(0) - 1)
-      ).join('');
-
-      setDecryptedText(decrypted);
-      setIsDecodedText(true);
+    if (!validationTextareField(inputValue)) return;
+    const decrypted = decryptText(inputValue);
+    setOutputValue(decrypted);
+    setErrorMessage('');
   }
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+    setErrorMessage('');
+  };
   
   return (
     <div className={styles.app_container}>
@@ -48,11 +59,13 @@ function App() {
           <Textarea
             id="inputtext1"
             value={inputValue}
-            onChange={handleTextareChange}
+            onChange={handleInputChange}
             placeholder="Digite seu texto"
             className={styles.container__text__input}
             data-testid="inputtext1"
           />
+
+            {errorMessage && <p className="error-message">{errorMessage}</p>}
   
           <div className={styles.container__info__type__text}>
             <div className={styles.content__info__type__text}>
@@ -82,11 +95,8 @@ function App() {
           </div>
         </section>
 
-        <Decoder 
-              encryptedText={encryptedText} 
-              decryptedText={decryptedText}
-              isDecodedText={isDecodedText}
-        />
+        <Decoder outputValue={outputValue} />
+        
       </main>
     </div>
   );
