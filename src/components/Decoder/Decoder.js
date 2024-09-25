@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { Button } from "../Button/Button";
 import { Textarea } from "../Textarea/Textarea";
@@ -6,31 +6,17 @@ import text_decoder from "../../assets/text-decoder.png";
 import styles from "./Decoder.module.css";
 
 export function Decoder({ outputValue }) {
-  const [inputValue, setInputValue] = useState('');
   const [copySuccess, setCopySuccess] = useState('');
 
-  // useEffect(() => {
-  //   if (decryptedText) {
-  //     setInputValue(decryptedText);
-  //   } else if (encryptedText) {
-  //     setInputValue(encryptedText);
-  //   }
-  // }, [encryptedText, decryptedText]);
-
   function handleCopyText() {
-    let textToCopy = inputValue;
+    let textToCopy = outputValue;
     
     navigator.clipboard.writeText(textToCopy).then(() => {
         setCopySuccess('Texto copiado com sucesso!');
-        setInputValue('');
     }).catch(err => {
         setCopySuccess('Ops, ocorreu um erro ao copiar o texto!');
     });
   }
-
-  const handleInputChange = (e) => {
-    setInputValue(e.target.value);
-  };
 
   return (
     <section className={styles.container__decoder}>
@@ -50,8 +36,7 @@ export function Decoder({ outputValue }) {
         <Textarea
           id="inputtextDecodificador"
           value={outputValue}
-          readOnly
-          onChange={handleInputChange}
+          onChange={e => (e.target.value)} 
           placeholder="Digite um texto que você deseja criptografar ou descriptografar."
           // className={`${isDecodedText ? styles.input__decoder__with__text : styles.input__text__decoder}`}
         />

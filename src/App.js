@@ -16,34 +16,44 @@ function App() {
   const [outputValue, setOutputValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  function validationTextareField(inputValue) {
-    if (!inputValue.trim()) {
-      setErrorMessage('Campo de entrada está vazio!');
+  // Função de validação ajustada
+function validationTextareField(inputValue, isDecrypt = false) {
+  if (!inputValue.trim()) {
+    setErrorMessage('Campo de entrada está vazio!');
+    return false;
+  }
+
+  // Se for descriptografia, relaxe a validação para aceitar o texto criptografado
+  if (isDecrypt) {
+    // Ajuste a regex para aceitar caracteres criptografados (como símbolos ou outros caracteres)
+    if (!/^[a-z!]+$/.test(inputValue)) {
+      setErrorMessage('Texto criptografado inválido!');
       return false;
     }
-
+  } else {
+    // Para criptografia, apenas letras minúsculas e espaços são permitidos
     if (!/^[a-z ]+$/.test(inputValue)) {
       setErrorMessage('Texto para decodificação inválido!');
       return false;
     }
-    return true;
   }
 
-  // Função de criptografia
-  function handleEncrypt() {
-    if (!validationTextareField(inputValue)) return;
-    const encrypted = encryptText(inputValue);
-    setOutputValue(encrypted);
-    setErrorMessage('');
-  }
+  return true;
+}
 
-  // Função de descriptografia
-  function handleDecrypt() {
-    if (!validationTextareField(inputValue)) return;
-    const decrypted = decryptText(inputValue);
-    setOutputValue(decrypted);
-    setErrorMessage('');
-  }
+function handleEncrypt() {
+  if (!validationTextareField(inputValue)) return;
+  const encrypted = encryptText(inputValue);
+  setOutputValue(encrypted);
+  setErrorMessage('');
+}
+
+function handleDecrypt() {
+  if (!validationTextareField(inputValue, true)) return;
+  const decrypted = decryptText(inputValue);
+  setOutputValue(decrypted);
+  setErrorMessage('');
+}
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
