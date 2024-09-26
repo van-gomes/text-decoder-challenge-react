@@ -27,7 +27,7 @@ export function Decoder({ outputValue }) {
           alt="Decodificador de Texto" 
         />
 
-        <h1 
+        <h1
           // className={`${isDecodedText ? styles.hidden : styles.title__text_decoder}`}
         >
           Nenhuma mensagem encontrada
