@@ -28,25 +28,30 @@ export function Decoder({ outputValue }) {
   return (
     <section className={styles.container__decoder}>
       <div className={styles.content__text__decoder}>
-        <img
-          className={`${outputValue? styles.hidden : styles.img_text_decoder}`}
-          src={text_decoder} 
-          alt="Decodificador de Texto" 
-        />
 
-        <h1
-          className={`${outputValue ? styles.hidden : styles.title__text_decoder}`}
-        >
-          Nenhuma mensagem encontrada
-        </h1>
+      {outputValue === '' && (
+        <>
+          <img
+            className={`${outputValue? styles.hidden : styles.img_text_decoder}`}
+            src={text_decoder} 
+            alt="Decodificador de Texto" 
+          />
 
-        <Textarea
-          id="inputtextDecodificador"
-          value={outputValue}
-          onChange={e => (e.target.value)} 
-          placeholder="Digite um texto que você deseja criptografar ou descriptografar."
-          className={`${outputValue ? styles.input__decoder__with__text : styles.input__text__decoder}`}
-        />
+          <h1
+            className={`${outputValue ? styles.hidden : styles.title__text_decoder}`}
+          >
+              Nenhuma mensagem encontrada
+          </h1>
+        </>
+      )}   
+       
+          <Textarea
+            id="inputtextDecodificador"
+            value={outputValue}
+            onChange={e => (e.target.value)} 
+            placeholder="Digite um texto que você deseja criptografar ou descriptografar."
+            className={`${outputValue ? styles.input__decoder__with__text : styles.input__text__decoder}`}
+          />
 
         <div className={styles.container_copy_button}>
           <Button
