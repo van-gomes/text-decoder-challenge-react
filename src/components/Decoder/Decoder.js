@@ -8,13 +8,20 @@ import styles from "./Decoder.module.css";
 export function Decoder({ outputValue }) {
   const [copySuccess, setCopySuccess] = useState('');
 
+  function showMessage(message, duration = 3000) {
+    setCopySuccess(message);
+    setTimeout(() => {
+      setCopySuccess('');
+    }, duration);
+  }
+
   function handleCopyText() {
     let textToCopy = outputValue;
     
     navigator.clipboard.writeText(textToCopy).then(() => {
-        setCopySuccess('Texto copiado com sucesso!');
+        showMessage('Texto copiado com sucesso!');
     }).catch(err => {
-        setCopySuccess('Ops, ocorreu um erro ao copiar o texto!');
+        showMessage('Ops, ocorreu um erro ao copiar o texto!');
     });
   }
 
