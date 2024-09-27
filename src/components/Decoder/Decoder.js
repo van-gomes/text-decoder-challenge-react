@@ -29,13 +29,13 @@ export function Decoder({ outputValue }) {
     <section className={styles.container__decoder}>
       <div className={styles.content__text__decoder}>
         <img
-          // className={`${isDecodedText ? styles.hidden : styles.img_text_decoder}`}
+          className={`${outputValue? styles.hidden : styles.img_text_decoder}`}
           src={text_decoder} 
           alt="Decodificador de Texto" 
         />
 
         <h1
-          // className={`${isDecodedText ? styles.hidden : styles.title__text_decoder}`}
+          className={`${outputValue ? styles.hidden : styles.title__text_decoder}`}
         >
           Nenhuma mensagem encontrada
         </h1>
@@ -45,7 +45,7 @@ export function Decoder({ outputValue }) {
           value={outputValue}
           onChange={e => (e.target.value)} 
           placeholder="Digite um texto que você deseja criptografar ou descriptografar."
-          // className={`${isDecodedText ? styles.input__decoder__with__text : styles.input__text__decoder}`}
+          className={`${outputValue ? styles.input__decoder__with__text : styles.input__text__decoder}`}
         />
 
         <div className={styles.container_copy_button}>
