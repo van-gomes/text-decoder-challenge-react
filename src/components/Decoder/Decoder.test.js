@@ -1,4 +1,4 @@
-import { render, fireEvent, screen, waitFor } from '@testing-library/react';
+import { render, fireEvent, screen, waitFor, getByRole } from '@testing-library/react';
 import { Decoder } from './Decoder';
 
 describe('Decoder Component', () => {
@@ -50,6 +50,13 @@ describe('Decoder Component', () => {
         const input = screen.getByDisplayValue('testenovo');
         expect(input).toBeInTheDocument();
     });
+
+    test('Deve renderizar o botão copiar', () => {
+        render(<Decoder />);
+
+        const buttonCopiar = screen.getByRole('button', { name: /copiar/i });
+        expect(buttonCopiar).toBeInTheDocument();
+    });
     
     test('Deve copiar o texto criptografado', async () => {
         // Mock da API clipboard
@@ -61,9 +68,6 @@ describe('Decoder Component', () => {
     
         render(<Decoder outputValue="uftufopwp" />);
     
-        const campoTextarea = screen.getByPlaceholderText('Digite um texto que você deseja criptografar ou descriptografar.');
-        fireEvent.change(campoTextarea, { target: { value: 'uftufopwp' } });
-        
         fireEvent.click(screen.getByText('Copiar'));
     
         await waitFor(() => {
@@ -85,10 +89,7 @@ describe('Decoder Component', () => {
         });
     
         render(<Decoder outputValue="testenovo" />);
-    
-        const campoTextarea = screen.getByPlaceholderText('Digite um texto que você deseja criptografar ou descriptografar.');
-        fireEvent.change(campoTextarea, { target: { value: 'testenovo' } });
-        
+            
         fireEvent.click(screen.getByText('Copiar'));
     
         await waitFor(() => {
@@ -100,5 +101,21 @@ describe('Decoder Component', () => {
             expect(screen.queryByText('Texto copiado com sucesso!')).not.toBeInTheDocument();
         }, { timeout: 3500 });
     });
-    
+
+    test('Deve exibir uma mensagem de erro ao falhar em copiar o texto', async () => {
+        // Mock da API clipboard para simular erro
+        Object.assign(navigator, {
+            clipboard: {
+                writeText: jest.fn().mockImplementation(() => Promise.reject(new Error('Erro ao copiar')))
+            }
+        });
+
+        render(<Decoder outputValue="testenovo" />);
+
+        fireEvent.click(screen.getByText('Copiar'));
+
+        await waitFor(() => {
+            expect(screen.getByText('Ops, ocorreu um erro ao copiar o texto!')).toBeInTheDocument();
+        });
+    });
 });
