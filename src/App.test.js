@@ -12,7 +12,9 @@ describe('App Component', () => {
   // Teste de renderização inicial do componente
   test('Deve renderizar o campo textarea com o placeholder correto', () => {
     render(<App />);
+
     const campoTextarea = screen.getByPlaceholderText('Digite seu texto');
+    
     expect(campoTextarea).toBeInTheDocument();
     expect(campoTextarea).toHaveAttribute('placeholder', 'Digite seu texto');
   });
@@ -20,6 +22,7 @@ describe('App Component', () => {
   // Teste de erro para campo vazio
   test('Deve mostrar mensagem de erro quando o campo de entrada estiver vazio', async () => {
     render(<App />);
+
     const campoTextarea = screen.getByPlaceholderText('Digite seu texto');
     
     // Simula o clique no botão de criptografar com campo vazio
@@ -34,6 +37,7 @@ describe('App Component', () => {
   // Teste de erro para letras maiúsculas
   test('Deve mostrar mensagem de erro quando o texto contiver letras maiúsculas', async () => {
     render(<App />);
+
     const campoTextarea = screen.getByPlaceholderText('Digite seu texto');
     
     // Simula a entrada de um texto inválido (letras maiúsculas)
@@ -48,6 +52,7 @@ describe('App Component', () => {
   // Teste de erro para letras com acentos
   test('Deve mostrar mensagem de erro quando o texto contiver letras com acentos', async () => {
     render(<App />);
+
     const campoTextarea = screen.getByPlaceholderText('Digite seu texto');
     
     // Simula a entrada de um texto com acento
@@ -62,6 +67,7 @@ describe('App Component', () => {
   // Teste de criptografia (entrada válida)
   test('Deve criptografar o texto corretamente quando o campo de entrada for válido', () => {
     render(<App />);
+
     const campoTextarea = screen.getByPlaceholderText('Digite seu texto');
     
     // Simula a entrada de um texto válido
@@ -77,7 +83,6 @@ describe('App Component', () => {
   test('Deve descriptografar o texto corretamente quando o campo de entrada for válido', async () => {
     render(<App />);
 
-    // Obtém o campo textarea usando data-testid
     const campoTextarea = screen.getByPlaceholderText('Digite seu texto');
     
     // Simula a entrada de um texto criptografado

@@ -69,6 +69,12 @@
     cursor: pointer;
 }
 
+.copyMessage {
+    font-size: 1rem;;
+    font-weight: bold;
+    color: var(--color-black);
+}
+
 @media (max-width: 375px) {
     .container__decoder {
         position: absolute;

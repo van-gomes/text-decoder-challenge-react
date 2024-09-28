@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, fireEvent, screen, waitFor } from '@testing-library/react';
 import { Decoder } from './Decoder';
 
 describe('Decoder Component', () => {
@@ -49,6 +49,56 @@ describe('Decoder Component', () => {
         
         const input = screen.getByDisplayValue('testenovo');
         expect(input).toBeInTheDocument();
+    });
+    
+    test('Deve copiar o texto criptografado', async () => {
+        // Mock da API clipboard
+        Object.assign(navigator, {
+            clipboard: {
+                writeText: jest.fn().mockImplementation(() => Promise.resolve())
+            }
+        });
+    
+        render(<Decoder outputValue="uftufopwp" />);
+    
+        const campoTextarea = screen.getByPlaceholderText('Digite um texto que você deseja criptografar ou descriptografar.');
+        fireEvent.change(campoTextarea, { target: { value: 'uftufopwp' } });
+        
+        fireEvent.click(screen.getByText('Copiar'));
+    
+        await waitFor(() => {
+            expect(navigator.clipboard.writeText).toHaveBeenCalledWith('uftufopwp');
+            expect(screen.getByText('Texto copiado com sucesso!')).toBeInTheDocument();
+        });
+    
+        await waitFor(() => {
+            expect(screen.queryByText('Texto copiado com sucesso!')).not.toBeInTheDocument();
+        }, { timeout: 3500 });
+    });
+
+    test('Deve copiar o texto descriptografado', async () => {
+        // Mock da API clipboard
+        Object.assign(navigator, {
+            clipboard: {
+                writeText: jest.fn().mockImplementation(() => Promise.resolve())
+            }
+        });
+    
+        render(<Decoder outputValue="testenovo" />);
+    
+        const campoTextarea = screen.getByPlaceholderText('Digite um texto que você deseja criptografar ou descriptografar.');
+        fireEvent.change(campoTextarea, { target: { value: 'testenovo' } });
+        
+        fireEvent.click(screen.getByText('Copiar'));
+    
+        await waitFor(() => {
+            expect(navigator.clipboard.writeText).toHaveBeenCalledWith('testenovo');
+            expect(screen.getByText('Texto copiado com sucesso!')).toBeInTheDocument();
+        });
+    
+        await waitFor(() => {
+            expect(screen.queryByText('Texto copiado com sucesso!')).not.toBeInTheDocument();
+        }, { timeout: 3500 });
     });
     
 });
