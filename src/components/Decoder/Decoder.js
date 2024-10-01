@@ -16,13 +16,7 @@ export function Decoder({ outputValue }) {
   }
 
   function handleCopyText() {
-    let textToCopy = outputValue;
-    
-    navigator.clipboard.writeText(textToCopy).then(() => {
-        showMessage('Texto copiado com sucesso!');
-    }).catch(err => {
-        showMessage('Ops, ocorreu um erro ao copiar o texto!');
-    });
+    copyTextToClipboard(outputValue, showMessage);
   }
 
   return (
