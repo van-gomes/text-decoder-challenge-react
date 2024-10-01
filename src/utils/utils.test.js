@@ -1,4 +1,4 @@
-import { encryptText, decryptText } from './utils';
+import { encryptText, decryptText } from './decodeUtil';
 
 describe('Funções de Criptografia e Descriptografia', () => {
   

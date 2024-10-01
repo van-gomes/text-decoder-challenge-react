@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { encryptText, decryptText } from "./utils/utils";
+import { encryptText, decryptText } from "./utils/decodeUtil";
 
 import { Button } from "./components/Button/Button";
 import { Decoder } from "./components/Decoder/Decoder";
