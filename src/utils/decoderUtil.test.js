@@ -1,6 +1,6 @@
 import { encryptText, decryptText } from './decodeUtil';
 
-describe('Funções de Criptografia e Descriptografia', () => {
+describe('Funções', () => {
   
   test('Deve criptografar o texto corretamente', () => {
     const textoCriptografado = encryptText('hello world');

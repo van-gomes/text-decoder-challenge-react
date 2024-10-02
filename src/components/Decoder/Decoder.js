@@ -47,7 +47,7 @@ export function Decoder({ outputValue }) {
             id="inputcopytext"
             onClick={handleCopyText}
             label="Copiar"
-            aria-label="Copiar o texto inserido"
+            aria-label="Copiar"
             className={styles.copy__button}
           />
         </div>

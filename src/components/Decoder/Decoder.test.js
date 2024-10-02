@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { render, fireEvent, screen, waitFor } from '@testing-library/react';
+
 import { Decoder } from './Decoder';
 
 describe('Decoder Component', () => {
@@ -51,10 +52,29 @@ describe('Decoder Component', () => {
         expect(input).toBeInTheDocument();
     });
 
-    test('Deve renderizar o botão copiar', () => {
+    test('Deve renderizar o botão copiar', async () => {
         render(<Decoder />);
-
-        const buttonCopiar = screen.getByRole('button', { name: /copiar/i });
+    
+        const buttonCopiar = screen.getByRole('button', { name: 'Copiar' });
+        
         expect(buttonCopiar).toBeInTheDocument();
     });
+    
+    test('Deve chamar a função copyTextToClipboard quando o botão Copiar for clicado', async () => {
+        navigator.clipboard = {
+            writeText: jest.fn().mockResolvedValue(),
+        };
+
+        render(<Decoder outputValue="ejhjufpufyup" />);
+
+        const buttonCopiar = screen.getByRole('button', { name: 'Copiar' });
+
+        fireEvent.click(buttonCopiar);
+
+        expect(navigator.clipboard.writeText).toHaveBeenCalledWith('ejhjufpufyup');
+
+        await waitFor(() => {
+            expect(screen.getByText('Texto copiado com sucesso!')).toBeInTheDocument();
+        });
+    });    
 });
