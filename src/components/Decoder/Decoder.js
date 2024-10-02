@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import { useCopyMessage } from "../../hooks/useCopyMessage";
+import { copyTextToClipboard } from "../../utils/copyUtil";
 
 import { Button } from "../Button/Button";
 import { Textarea } from "../Textarea/Textarea";
@@ -6,14 +8,7 @@ import text_decoder from "../../assets/text-decoder.png";
 import styles from "./Decoder.module.css";
 
 export function Decoder({ outputValue }) {
-  const [copySuccess, setCopySuccess] = useState('');
-
-  function showMessage(message, duration = 3000) {
-    setCopySuccess(message);
-    setTimeout(() => {
-      setCopySuccess('');
-    }, duration);
-  }
+  const { copySuccess, showMessage } = useCopyMessage();
 
   function handleCopyText() {
     copyTextToClipboard(outputValue, showMessage);
