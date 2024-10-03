@@ -48,7 +48,7 @@ export function Decoder({ outputValue }) {
             onClick={handleCopyText}
             label="Copiar"
             aria-label="Copiar"
-            className={styles.copy__button}
+            className={styles.btn__copy}
           />
         </div>
       </div>
