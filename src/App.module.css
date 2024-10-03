@@ -58,8 +58,8 @@ body {
     margin-top: 0.5rem;
 }
 
-.encrypt__button, 
-.decrypt__button {
+.btn__encrypt, 
+.btn__decrypt {
     width: 17rem;
     padding: 1rem;
     font-size: 1rem;
@@ -68,12 +68,13 @@ body {
     cursor: pointer;
 }
 
-.encrypt__button {
-    color: var(--color-white);
+.btn__encrypt {
     background-color: var(--dark-blue-300);
+    color: var(--color-white);
+    border-color: var(--dark-blue-300);
 }
 
-.decrypt__button {
+.btn__decrypt {
     color: var(--dark-blue-300);
     background-color: var(--dark-blue-500);
 }

@@ -1,14 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export function Button({ label, onClick, type, icon, className }) {
+export function Button({ label, onClick, type, classNameVariant, className }) {
   return (
     <button
       type={type}
       onClick={onClick}
-      className={className}
+      className={`${className} ${classNameVariant} ${className}`}
     >
-      {icon}
       {label}
     </button>
   );
@@ -18,11 +17,12 @@ Button.propTypes = {
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['button', 'submit', 'reset']),
-  icon: PropTypes.node,
+  classNameVariant: PropTypes.oneOf(['btn__encrypt', 'btn__decrypt', 'btn__copy']),
   className: PropTypes.string,
 };
 
 Button.defaultProps = {
   type: 'button',
+  classNameVariant: '',
   className: '',
 };

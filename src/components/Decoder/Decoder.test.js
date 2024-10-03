@@ -34,7 +34,7 @@ describe('Decoder Component', () => {
     test('Deve renderizar o input com o seu placeholder quando não há texto decodificado', () => {
         render(<Decoder outputValue="" />);
         
-        const inputPlaceholder = screen.getByPlaceholderText('Digite um texto que você deseja criptografar ou descriptografar.');
+        const inputPlaceholder = screen.getByPlaceholderText('Digite um texto que você deseja criptografar ou descriptografar');
         expect(inputPlaceholder).toBeInTheDocument();
     });
 

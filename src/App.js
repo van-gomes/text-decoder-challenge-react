@@ -94,13 +94,13 @@ function handleDecrypt() {
               id="codificador"
               label="Criptografar"
               onClick={handleEncrypt}
-              className={styles.encrypt__button}
+              className={styles.btn__encrypt}
             />
             <Button
               id="descriptografar"
               label="Descriptografar"
               onClick={handleDecrypt}
-              className={styles.decrypt__button}
+              className={styles.btn__decrypt}
             />
           </div>
         </section>

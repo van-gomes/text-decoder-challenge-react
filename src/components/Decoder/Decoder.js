@@ -38,7 +38,7 @@ export function Decoder({ outputValue }) {
             id="inputtextDecodificador"
             value={outputValue}
             onChange={e => (e.target.value)} 
-            placeholder="Digite um texto que você deseja criptografar ou descriptografar."
+            placeholder="Digite um texto que você deseja criptografar ou descriptografar"
             className={`${outputValue ? styles.input__decoder__with__text : styles.input__text__decoder}`}
           />
 
