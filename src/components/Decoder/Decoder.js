@@ -21,13 +21,13 @@ export function Decoder({ outputValue }) {
       {outputValue === '' && (
         <>
           <img
-            className={`${outputValue? styles.hidden : styles.img_text_decoder}`}
+            className={styles.img_text_decoder}
             src={text_decoder} 
             alt="Decodificador de Texto" 
           />
 
           <h1
-            className={`${outputValue ? styles.hidden : styles.title__text_decoder}`}
+            className={styles.title__text_decoder}
           >
               Nenhuma mensagem encontrada
           </h1>

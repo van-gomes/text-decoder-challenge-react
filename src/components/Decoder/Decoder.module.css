@@ -31,10 +31,6 @@
     text-shadow: 0.1em 0.1em 0.2em var(--gray-500);
 }
 
-.hidden {
-    display: none;
-}
-
 .input__text__decoder {
     width: 100%;
     text-align: center;

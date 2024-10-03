@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './Textarea.module.css';
 
 export function Textarea({ value, onChange, placeholder, className, ...props }) {
   return (
@@ -8,7 +7,7 @@ export function Textarea({ value, onChange, placeholder, className, ...props }) 
       value={value}
       onChange={onChange}
       placeholder={placeholder}
-      className={`${styles.textarea} ${className}`}
+      className={className}
       {...props}
     />
   );
