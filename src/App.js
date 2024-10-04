@@ -67,12 +67,11 @@ function handleDecrypt() {
 
         <section className={styles.container_text}>
           <Textarea
-            id="inputtext1"
+            id="inputApp"
             value={inputValue}
             onChange={handleInputChange}
             placeholder="Digite seu texto"
             className={styles.container__text__input}
-            data-testid="inputtext1"
           />
 
             {errorMessage && <p className="error-message">{errorMessage}</p>}
