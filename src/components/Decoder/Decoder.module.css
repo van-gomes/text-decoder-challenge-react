@@ -1,10 +1,9 @@
 .container__decoder {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     max-width: 24rem;
     width: 100%;
-    padding: 1rem;
     border-radius: 32px;
     background-color: var(--color-white);
 }
@@ -12,11 +11,12 @@
 .content__text__decoder {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     gap: 1rem;
     width: 100%;
     min-height: 90%;
+    background-color: aqua;
 }    
 
 .img_text_decoder {
@@ -35,16 +35,26 @@
     width: 100%;
     text-align: center;
     line-height: 1.3rem;
-    padding: 0.75rem 1rem;
+    /* padding: 0.75rem 1rem; */
     border: 0;
     background-color: var(--color-white);
 }
 
-.input__decoder__with__text {
+.div-textarea {
     display: flex;
-    top: 3.75rem;
-    height: 50%;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh; /* Ou ajuste conforme necessário */
+    position: relative;
+}
+
+.input__decoder__with__text {
+    width: max-content;
+    text-align: start;
+    background-color: red;
     border: 0;
+    position: static; /* Altere para 'static' se possível para facilitar o alinhamento */
+    /* Remova 'top: 4rem' se não for necessário */
 }
 
 .container_copy_button {

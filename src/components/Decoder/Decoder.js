@@ -34,14 +34,16 @@ export function Decoder({ outputValue }) {
         </>
       )}   
        
+       <div className="div-textarea">
           <Textarea
-            id="inputtextDecodificador"
-            value={outputValue}
-            onChange={e => (e.target.value)} 
-            placeholder="Digite um texto que você deseja criptografar ou descriptografar"
-            className={`${outputValue ? styles.input__decoder__with__text : styles.input__text__decoder}`}
-          />
-
+                id="inputtextDecodificador"
+                value={outputValue}
+                onChange={e => (e.target.value)} 
+                placeholder="Digite um texto que você deseja criptografar ou descriptografar"
+                className={`${outputValue ? styles.input__decoder__with__text : styles.input__text__decoder}`}
+              />
+       </div>
+         
         <div className={styles.container_copy_button}>
           <Button
             id="inputcopytext"
