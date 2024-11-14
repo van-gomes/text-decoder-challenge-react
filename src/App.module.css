@@ -2,19 +2,19 @@ body {
     background-color: var(--background-color-main);
 }
 
-.app_container {
+.container__app {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     padding: 2rem;
 }
 
-.app__container__main {
+.container__main {
     display: flex;
     gap: 10rem;
 }
 
-.container__text__input {
+.input__app {
     width: 100%;
     max-width: 42.5rem;
     height: 3rem;
@@ -52,7 +52,7 @@ body {
     line-height: 1.5;
 }
 
-.btn {
+.container__btn {
     display: flex;
     gap: 0.5rem;
     margin-top: 0.5rem;
@@ -87,7 +87,7 @@ body {
         padding: 0.1rem;
     } */
 
-    .app__container__main {
+    .container__main {
         display: flex;
         /* flex-wrap: wrap; */
         flex-direction: column;
@@ -98,7 +98,7 @@ body {
         gap: 3rem;
     }
     
-    .container_text {
+    .container__text {
         display: flex;
         flex-direction: column;
         position: absolute;
@@ -109,7 +109,7 @@ body {
 }
 
 @media (max-width: 560px) {
-    .btn {
+    .container__btn {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -124,14 +124,14 @@ body {
 }
 
 @media (max-width: 768px) {
-    .app_container {
-        display: flex;
-        justify-content: flex-start;
-        align-items: flex-start;
-        padding: 0.1rem;
-    }
+    .container__app {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            padding: 0.1rem;
+        }
 
-    .app__container__main {
+    .container__main {
         display: flex;
         /* flex-wrap: wrap; */
         flex-direction: column;
@@ -142,7 +142,7 @@ body {
         gap: 3rem;
     } 
     
-    .container_text {
+    .container__text {
         display: flex;
         flex-direction: column;
         position: absolute;

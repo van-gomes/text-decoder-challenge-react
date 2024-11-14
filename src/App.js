@@ -61,20 +61,20 @@ function handleDecrypt() {
   };
   
   return (
-    <div className={styles.app_container}>
-       <main className={styles.app__container__main}>
+    <div className={styles.container__app}>
+       <main className={styles.container__main}>
           <Header />
 
-        <section className={styles.container_text}>
+        <section className={styles.container__text}>
           <Textarea
             id="inputApp"
             value={inputValue}
             onChange={handleInputChange}
             placeholder="Digite seu texto"
-            className={styles.container__text__input}
+            className={styles.input__app}
           />
 
-            {errorMessage && <p className="error-message">{errorMessage}</p>}
+            {errorMessage && <p className="error__message">{errorMessage}</p>}
   
           <div className={styles.container__info__type__text}>
             <div className={styles.content__info__type__text}>
@@ -88,7 +88,7 @@ function handleDecrypt() {
             </div>
           </div>
 
-          <div className={styles.btn}>
+          <div className={styles.container__btn}>
             <Button
               id="codificador"
               label="Criptografar"
