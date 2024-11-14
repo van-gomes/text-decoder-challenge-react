@@ -16,7 +16,7 @@ export function Decoder({ outputValue }) {
 
   return (
     <section className={styles.container__decoder}>
-      <div className={styles.content__text__decoder}>
+      <div className={styles.content__decoder}>
 
       {outputValue === '' && (
         <>
@@ -34,17 +34,19 @@ export function Decoder({ outputValue }) {
         </>
       )}   
        
-       <div className="div-textarea">
+       <div className={styles.textarea__decoder}>
           <Textarea
                 id="inputtextDecodificador"
                 value={outputValue}
                 onChange={e => (e.target.value)} 
                 placeholder="Digite um texto que você deseja criptografar ou descriptografar"
-                className={`${outputValue ? styles.input__decoder__with__text : styles.input__text__decoder}`}
+                className={`${
+                  outputValue ? styles.input__with__text__decoder  :
+                   styles.input__without__text__decoder}`}
               />
        </div>
          
-        <div className={styles.container_copy_button}>
+        <div className={styles.container__copy__button}>
           <Button
             id="inputcopytext"
             onClick={handleCopyText}
@@ -55,7 +57,9 @@ export function Decoder({ outputValue }) {
         </div>
       </div>
  
-      {copySuccess && ( <p className={styles.copyMessage}>{copySuccess}</p> )}
+      <div className={styles.container__copy_message}>
+        {copySuccess && ( <p className={styles.copy__message}>{copySuccess}</p> )}
+      </div>
     </section>
   );
 }
