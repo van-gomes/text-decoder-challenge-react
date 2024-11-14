@@ -95,6 +95,7 @@ function handleDecrypt() {
               onClick={handleEncrypt}
               className={styles.btn__encrypt}
             />
+            
             <Button
               id="descriptografar"
               label="Descriptografar"

@@ -108,6 +108,21 @@ body {
     }
 }
 
+@media (max-width: 560px) {
+    .btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30rem;
+    }
+
+    .btn__encrypt, 
+    .btn__decrypt {
+        width: 30rem;
+    }
+}
+
 @media (max-width: 768px) {
     .app_container {
         display: flex;
