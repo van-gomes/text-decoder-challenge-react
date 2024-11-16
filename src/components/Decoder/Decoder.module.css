@@ -107,10 +107,12 @@
 
 @media (max-width: 375px) {
     .container__decoder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         position: absolute;
+        width: 30rem;
         top: 53rem;
-        max-width: 25rem;
-        width: 100%;
     }
 
     .img_text_decoder {
@@ -145,8 +147,8 @@
 @media (max-width: 768px) {
     .container__decoder {
         position: absolute;
+        width: 30rem;
         top: 53rem;
-        width: 85%;
         margin: 3rem;
     }
     

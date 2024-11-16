@@ -1,20 +1,20 @@
-.container_header {
+.container__header {
     display: flex;
     justify-content: flex-start;
 }
 
-.container_header img {  
+.container__header img {  
     height: 3rem;
 }
 
 @media (max-width: 375px) {
-    .container_header {
+    .container__header {
         margin: 3rem 3rem;
     }
 }
 
 @media (max-width: 768px) {
-    .container_header {
+    .container__header {
         margin: 3rem 3rem;
     }
 }
