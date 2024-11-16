@@ -80,13 +80,6 @@ body {
 }
 
 @media (max-width: 375px) {
-    /* .app_container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        padding: 0.1rem;
-    } */
-
     .container__main {
         display: flex;
         /* flex-wrap: wrap; */
@@ -103,7 +96,6 @@ body {
         flex-direction: column;
         position: absolute;
         top: 3.75rem;
-        /* margin-top: -6rem; */
         margin-left: 3rem;
     }
 
@@ -140,7 +132,6 @@ body {
 
     .container__main {
         display: flex;
-        /* flex-wrap: wrap; */
         flex-direction: column;
         justify-content: flex-start;
         align-items: flex-start;
@@ -154,7 +145,6 @@ body {
         flex-direction: column;
         position: absolute;
         top: 3.75rem;
-        /* margin-top: -6rem; */
         margin-left: 3rem;
     }
 }
