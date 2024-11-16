@@ -106,6 +106,13 @@ body {
         /* margin-top: -6rem; */
         margin-left: 3rem;
     }
+
+    .btn__encrypt, .btn__decrypt {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25rem;
+    }
 }
 
 @media (max-width: 560px) {
@@ -119,7 +126,7 @@ body {
 
     .btn__encrypt, 
     .btn__decrypt {
-        width: 30rem;
+        width: 25rem;
     }
 }
 
