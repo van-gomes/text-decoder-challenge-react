@@ -16,7 +16,7 @@ function App() {
   const [outputValue, setOutputValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
-  // Função de validação ajustada
+// Função de validação ajustada
 function validationTextareField(inputValue, isDecrypt = false) {
   if (!inputValue.trim()) {
     setErrorMessage('Campo de entrada está vazio!');
