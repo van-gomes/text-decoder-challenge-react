@@ -34,36 +34,6 @@ describe('App Component', () => {
     expect(mensagemErro).toBeInTheDocument();
   });
 
-  // Teste de erro para letras maiúsculas
-  test('Deve mostrar mensagem de erro quando o texto contiver letras maiúsculas', async () => {
-    render(<App />);
-
-    const campoTextarea = screen.getByPlaceholderText('Digite seu texto');
-    
-    // Simula a entrada de um texto inválido (letras maiúsculas)
-    fireEvent.change(campoTextarea, { target: { value: 'HELLO' } });
-    fireEvent.click(screen.getByText('Criptografar'));
-
-    // Verifica se a mensagem de erro aparece
-    const mensagemErro = await screen.findByText('Texto para decodificação inválido!');
-    expect(mensagemErro).toBeInTheDocument();
-  });
-
-  // Teste de erro para letras com acentos
-  test('Deve mostrar mensagem de erro quando o texto contiver letras com acentos', async () => {
-    render(<App />);
-
-    const campoTextarea = screen.getByPlaceholderText('Digite seu texto');
-    
-    // Simula a entrada de um texto com acento
-    fireEvent.change(campoTextarea, { target: { value: 'olá mundo' } });
-    fireEvent.click(screen.getByText('Criptografar'));
-
-    // Verifica se a mensagem de erro aparece
-    const mensagemErro = await screen.findByText('Texto para decodificação inválido!');
-    expect(mensagemErro).toBeInTheDocument();
-  });
-
   // Teste de criptografia (entrada válida)
   test('Deve criptografar o texto corretamente quando o campo de entrada for válido', () => {
     render(<App />);

@@ -23,22 +23,8 @@ function validationTextareField(inputValue, isDecrypt = false) {
     return false;
   }
 
-  // Se for descriptografia, relaxe a validação para aceitar o texto criptografado
-  if (isDecrypt) {
-    // Ajuste a regex para aceitar caracteres criptografados (como símbolos ou outros caracteres)
-    if (!/^[a-z!]+$/.test(inputValue)) {
-      setErrorMessage('Texto criptografado inválido!');
-      return false;
-    }
-  } else {
-    // Para criptografia, apenas letras minúsculas e espaços são permitidos
-    if (!/^[a-z ]+$/.test(inputValue)) {
-      setErrorMessage('Texto para decodificação inválido!');
-      return false;
-    }
-  }
-
   return true;
+  
 }
 
 function handleEncrypt() {
