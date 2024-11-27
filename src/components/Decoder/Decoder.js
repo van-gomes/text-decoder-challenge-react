@@ -55,10 +55,11 @@ export function Decoder({ outputValue }) {
             className={styles.btn__copy}
           />
         </div>
-      </div>
- 
-      <div className={styles.container__copy_message}>
-        {copySuccess && ( <p className={styles.copy__message}>{copySuccess}</p> )}
+
+        <div className={styles.container_copy_message}>
+          {copySuccess && ( <p className={styles.copy__message}>{copySuccess}</p> )}
+        </div>
+
       </div>
     </section>
   );
